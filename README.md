@@ -23,7 +23,7 @@
 ---
 
 ### Задание 1
-
+```
 SELECT
     CONCAT(s.first_name, ' ', s.last_name) AS employee_name,
     c.city,
@@ -43,20 +43,20 @@ GROUP BY
     s.last_name,
     c.city
 HAVING COUNT(cu.customer_id) > 300;
-
+```
 
 ---
 
 ### Задание 2
-
-`SELECT COUNT(*) AS film_count
+```
+SELECT COUNT(*) AS film_count
 FROM film
 WHERE length > (SELECT AVG(length) FROM film);
-
+```
 ---
 
 ### Задание 3
-
+```
 SELECT
     DATE_FORMAT(payment_date, '%Y-%m') AS payment_month,
     SUM(amount) AS total_amount,
@@ -67,11 +67,11 @@ LEFT JOIN rental AS r
 GROUP BY DATE_FORMAT(payment_date, '%Y-%m')
 ORDER BY total_amount DESC
 LIMIT 1;
-
+```
 ---
 
 ### Задание 4
-
+```
 SELECT
     s.staff_id,
     CONCAT(s.first_name, ' ', s.last_name) AS seller,
@@ -87,11 +87,12 @@ GROUP BY
     s.staff_id,
     s.first_name,
     s.last_name;
+```
 
 ---
 
 ### Задание 5
-
+```
 SELECT f.film_id, f.title
 FROM film AS f
 WHERE NOT EXISTS (
@@ -100,3 +101,4 @@ WHERE NOT EXISTS (
     JOIN rental AS r ON r.inventory_id = i.inventory_id
     WHERE i.film_id = f.film_id
     );
+```
